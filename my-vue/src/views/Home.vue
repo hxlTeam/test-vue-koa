@@ -21,7 +21,7 @@ export default {
   methods: {
     handleClick() {
       this.$http
-        .get('/api/hello/hxl')
+        .get(`${localStorage.baseURL}/hello/hxl`)
         .then(res=>{
           console.log(res);
           this.message = res.data.name

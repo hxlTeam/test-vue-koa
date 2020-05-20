@@ -1,7 +1,15 @@
 const Koa = require('koa');
 const router = require('koa-router')();
+const static = require('koa-static')   //静态资源服务插件
+const path = require('path')           //路径管理
 
 const app = new Koa();
+
+// 配置静态资源
+const staticPath = './dist'
+app.use(static(
+    path.join( __dirname, staticPath)
+))
 
 app.use(async (ctx, next) => {
   console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
