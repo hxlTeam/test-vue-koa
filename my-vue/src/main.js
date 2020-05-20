@@ -17,12 +17,12 @@ if (isProduction) {
   }).catch(err => {
     console.log(err.message);
   });
-  axios.get('versions.json').then(e => {
-    let versions = e.data.versions;
-    localStorage.versions = versions;
-  }).catch(err => {
-    console.log(err.message);
-  })
+  // axios.get('versions.json').then(e => {
+  //   let versions = e.data.versions;
+  //   localStorage.versions = versions;
+  // }).catch(err => {
+  //   console.log(err.message);
+  // })
 }
 
 new Vue({
