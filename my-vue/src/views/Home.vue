@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    home
+    <br>
+    {{message}}
+    <br>
+    <button @click="handleClick">hello</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      message: ''
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$http
+        .get('/api/hello/hxl')
+        .then(res=>{
+          console.log(res);
+          this.message = res.data.name
+        })
+        .catch(err=>{
+          console.log(err);
+        })
+    }
   }
 }
 </script>
