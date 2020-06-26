@@ -22,7 +22,15 @@ router.get('/hello/:name', async (ctx, next) => {
     name
   }
   ctx.set("Content-Type", "application/json");
-  ctx.body = JSON.stringify(obj);
+  async function fn() {
+    return new Promise((resolve,reject)=>{
+      setTimeout(() => {
+        resolve(obj);
+      }, 1000);
+    })
+  };
+  // ctx.body = JSON.stringify(obj);
+  ctx.body = await fn();
 });
 
 router.get('/', async (ctx, next) => {

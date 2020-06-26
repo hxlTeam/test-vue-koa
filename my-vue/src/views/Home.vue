@@ -20,6 +20,9 @@ export default {
   },
   methods: {
     handleClick() {
+      setTimeout(() => {
+        console.log('setTimeout');
+      }, 0);
       this.$http
         .get(`${localStorage.baseURL}/hello/hxl`)
         .then(res=>{
